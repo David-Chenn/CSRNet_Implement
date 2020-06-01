@@ -5,7 +5,7 @@ I believe that for the most of the people who are new to the CSRNet may have not
 
 ## Dataset
 This model need the dataset ```ShanghaiTech_Crowd_Counting_Dataset``` which you can download from the link below
-ShanghaiTech_Crowd_C ounting_Dataset was first introduced in ```Single-Image Crowd Counting via Multi-Column Convolutional Neural Network, 2016```, which is a new large-scale crowd counting dataset named Shanghaitech which contains 1198 annotated images, with a total of 330,165 people with centers of their heads annotated.
+ShanghaiTech_Crowd_C ounting_Dataset was first introduced in ```Single-Image Crowd Counting via Multi-Column Convolutional Neural Network, in IEEE 2016```, which is a new large-scale crowd counting dataset named Shanghaitech which contains 1198 annotated images, with a total of 330,165 people with centers of their heads annotated.
 https://drive.google.com/file/d/16dhJn7k4FWVwByRsQAEpl9lwjuV03jVI/view?usp=sharing
 
 ## Replace
