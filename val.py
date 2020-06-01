@@ -94,31 +94,14 @@ model.load_state_dict(checkpoint['state_dict'])
 mae = 0
 for i in range(len(img_paths)):
     img = 255.0 * F.to_tensor(Image.open(img_paths[i]).convert('RGB'))
-
-    img[0,:,:]=img[0,:,:]-92.8207477031
-    img[1,:,:]=img[1,:,:]-95.2757037428
-    img[2,:,:]=img[2,:,:]-104.877445883
     img = img.cuda()
     img = transform(Image.open(img_paths[i]).convert('RGB')).cuda()
     gt_file = h5py.File(img_paths[i].replace('.jpg','.h5').replace('images','ground_truth'),'r')
     groundtruth = np.asarray(gt_file['density'])
     output = model(img.unsqueeze(0))
     mae += abs(output.detach().cpu().sum().numpy()-np.sum(groundtruth))
-######3#########0529##########
     print(i,mae)
-#    print('gtrtuth',np.sum(groundtruth))
-#    print('count',output.detach().cpu().sum())
-#####################0529######
-########0601####3
-#    mae2= mae/len(img_paths)
-#    writer = SummaryWriter(log_dir='./log', comment= 'CSRNet')
-#    with writer:
-#        writer.add_scalar('loss', mae2, i)
 
 print(mae/len(img_paths))
-
-
-# In[ ]:
-
 
 
