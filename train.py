@@ -6,8 +6,6 @@ import warnings
 from model import CSRNet
 
 from utils import save_checkpoint
-from tensorboard_logger import Logger
-logger = Logger(logdir="./tensorboard_logs", flush_secs=10)
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
@@ -143,7 +141,7 @@ def train(train_list, model, criterion, optimizer, epoch):
 #############print if you want########
        # print('gtruth',target.detach().cpu().sum())
        # print('count',output.detach().cpu().sum())
-############0529#####################
+#################################
 
         loss = criterion(output, target)
         
@@ -151,12 +149,6 @@ def train(train_list, model, criterion, optimizer, epoch):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        
-
-        ###
-        logger.log_value('avg_loss',losses.avg, epoch*len(train_loader) + i) 
-        ###
-        logger.log_value('loss', loss.item(), epoch*len(train_loader) + i)
         
         
         batch_time.update(time.time() - end)
